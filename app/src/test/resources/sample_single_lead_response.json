@@ -1,0 +1,63 @@
+
+{
+  "distance":100070,
+  "lead_price":1,
+  "title":"Buffet Completo",
+  "_embedded":{
+    "info":[
+      {
+        "label":"Qual Ã© o tipo de evento?",
+        "value":"Coffee-break"
+      },
+      {
+        "label":"Qual serÃ¡ o tipo de comida?",
+        "value":[
+          "Salgadinhos (coxinhas, kibes, risÃ³les etc)"
+        ]
+      },
+      {
+        "label":"Quantos convidados sÃ£o esperados?",
+        "value":"Menos de 10"
+      },
+      {
+        "label":"VocÃª tambÃ©m precisa de um espaÃ§o?",
+        "value":"Preciso de um espaÃ§o"
+      },
+      {
+        "label":"Quando serÃ¡ o evento? (opcional)",
+        "value":""
+      },
+      {
+        "label":"Como vocÃª quer ser contactado?",
+        "value":[
+          "Email",
+          "WhatsApp"
+        ]
+      },
+      {
+        "label":"InformaÃ§Ãµes Adicionais",
+        "value":"N/A"
+      }
+    ],
+    "user":{
+      "name":"Eduardo L'Hotellier",
+      "email":"eduardo@hotmail.com",
+      "_embedded":{
+        "phones":[
+          {
+            "number":"(11) 3791-7315"
+          }
+        ]
+      }
+    },
+    "address":{
+      "city":"SÃ£o Paulo",
+      "neighborhood":"Vila Leopoldina",
+      "uf":"SP",
+      "geolocation":{
+        "latitude":-23.5304898,
+        "longitude":-46.7261564
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+
+{
+  "distance":30070,
+  "lead_price":6,
+  "title":"Pedreiro",
+  "_embedded":{
+    "info":[
+      {
+        "label":"Qual Ã© o tipo de serviÃ§o?",
+        "value":"ConstruÃ§Ã£o"
+      },
+      {
+        "label":"Para quando vocÃª precisa deste serviÃ§o?",
+        "value":"Hoje ou nos prÃ³ximos 30 dias"
+      },
+      {
+        "label":"Como vocÃª quer ser contactado?",
+        "value":[
+          "Email",
+          "WhatsApp"
+        ]
+      },
+      {
+        "label":"InformaÃ§Ãµes Adicionais",
+        "value":"N/A"
+      }
+    ],
+    "user":{
+      "name":"Felix",
+      "email":"f****@hotmail.com",
+      "_embedded":{
+        "phones":[
+          {
+            "number":"(11) 3***-****"
+          }
+        ]
+      }
+    },
+    "address":{
+      "city":"SÃ£o Paulo",
+      "neighborhood":"ButantÃ£",
+      "uf":"SP",
+      "geolocation":{
+        "latitude":-23.571629,
+        "longitude":-46.754039
+      }
+    }
+  },
+  "_links":{
+    "accept":{
+      "href":"https://testemobile.getninjas.com.br/lead-2"
+    },
+    "reject":{
+      "href":"https://testemobile.getninjas.com.br/offers"
+    }
+  }
+}
