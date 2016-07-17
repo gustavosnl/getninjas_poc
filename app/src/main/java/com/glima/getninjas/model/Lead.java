@@ -8,10 +8,11 @@ public class Lead extends Offer {
     public Lead(Offer offer) {
         super(offer.getId(),
                 offer.getTitle(),
-                offer.getIsRead(),
+                offer.isRead(),
                 offer.getCreationDate(),
                 offer.getRequestingUser(),
-                offer.getRequestingAddress());
+                offer.getRequestingAddress(),
+                offer.getRequestingDistance());
     }
 
 

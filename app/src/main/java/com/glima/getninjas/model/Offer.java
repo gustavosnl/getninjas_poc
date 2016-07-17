@@ -13,15 +13,17 @@ public class Offer {
     private Date creationDate;
     private User requestingUser;
     private Address requestingAddress;
+    private Integer requestingDistance;
 
 
-    public Offer(String id, String title, Boolean isRead, Date creationDate, User requestingUser, Address requestingAddress) {
+    public Offer(String id, String title, Boolean isRead, Date creationDate, User User, Address Address, Integer distance) {
         this.id = id;
         this.title = title;
         this.isRead = isRead;
         this.creationDate = creationDate;
-        this.requestingUser = requestingUser;
-        this.requestingAddress = requestingAddress;
+        this.requestingUser = User;
+        this.requestingAddress = Address;
+        this.requestingDistance = distance;
     }
 
     public String getId() {
@@ -30,10 +32,6 @@ public class Offer {
 
     public String getTitle() {
         return title;
-    }
-
-    public Boolean getIsRead() {
-        return isRead;
     }
 
     public Date getCreationDate() {
@@ -46,5 +44,13 @@ public class Offer {
 
     public Address getRequestingAddress() {
         return requestingAddress;
+    }
+
+    public Boolean isRead() {
+        return isRead;
+    }
+
+    public Integer getRequestingDistance() {
+        return requestingDistance;
     }
 }

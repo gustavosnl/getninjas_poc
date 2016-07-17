@@ -8,8 +8,8 @@ import android.support.v7.widget.Toolbar;
 import com.glima.getninjas.R;
 import com.glima.getninjas.adapter.TitledFragmentAdapter;
 import com.glima.getninjas.databinding.ActivityMainBinding;
-import com.glima.getninjas.fragment.LeadFragment;
-import com.glima.getninjas.fragment.OfferFragment;
+import com.glima.getninjas.fragment.LeadListFragment;
+import com.glima.getninjas.fragment.OfferListFragment;
 
 import java.util.Arrays;
 
@@ -41,7 +41,7 @@ public class MainActivity extends BaseActivity {
         TitledFragmentAdapter adapter = new TitledFragmentAdapter(
                 this,
                 getSupportFragmentManager(),
-                Arrays.<Fragment>asList(new OfferFragment(), new LeadFragment()));
+                Arrays.<Fragment>asList(new OfferListFragment(), new LeadListFragment()));
         viewPager.setAdapter(adapter);
     }
 

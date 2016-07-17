@@ -2,6 +2,8 @@ package com.glima.getninjas.network.service;
 
 import android.content.Context;
 
+import com.glima.getninjas.network.converter.StringConverterFactory;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -23,6 +25,7 @@ public class BaseService {
                 .baseUrl(context.getString(baseUrlResourceId))
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(JacksonConverterFactory.create())
+                .addConverterFactory(StringConverterFactory.create())
                 .client(setupClient())
                 .build();
     }

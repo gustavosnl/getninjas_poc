@@ -10,10 +10,14 @@ public class Address {
     private String state;
     private Coordinates coordinates;
 
-    public Address(String city, String neighborhood, String state, Coordinates coordinates) {
+    public Address(String city, String neighborhood, String state) {
         this.city = city;
         this.neighborhood = neighborhood;
         this.state = state;
+    }
+
+    public Address(String city, String neighborhood, String state, Coordinates coordinates) {
+        this(city, neighborhood, state);
         this.coordinates = coordinates;
     }
 
