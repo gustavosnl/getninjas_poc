@@ -8,7 +8,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.jackson.JacksonConverterFactory;
 
 /**
  * Created by gustavo on 16/07/16.
@@ -24,7 +23,6 @@ public class BaseService {
         retrofit = new Retrofit.Builder()
                 .baseUrl(context.getString(baseUrlResourceId))
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .addConverterFactory(JacksonConverterFactory.create())
                 .addConverterFactory(StringConverterFactory.create())
                 .client(setupClient())
                 .build();

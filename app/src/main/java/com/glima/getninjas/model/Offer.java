@@ -1,7 +1,5 @@
 package com.glima.getninjas.model;
 
-import java.util.Date;
-
 /**
  * Created by gustavo on 16/07/16.
  */
@@ -10,13 +8,13 @@ public class Offer {
     private String id;
     private String title;
     private Boolean isRead;
-    private Date creationDate;
+    private String creationDate;
     private User requestingUser;
     private Address requestingAddress;
     private Integer requestingDistance;
 
 
-    public Offer(String id, String title, Boolean isRead, Date creationDate, User User, Address Address, Integer distance) {
+    public Offer(String id, String title, Boolean isRead, String creationDate, User User, Address Address, Integer distance) {
         this.id = id;
         this.title = title;
         this.isRead = isRead;
@@ -34,7 +32,7 @@ public class Offer {
         return title;
     }
 
-    public Date getCreationDate() {
+    public String getCreationDate() {
         return creationDate;
     }
 

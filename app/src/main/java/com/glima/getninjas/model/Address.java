@@ -36,4 +36,11 @@ public class Address {
     public Coordinates getCoordinates() {
         return coordinates;
     }
+
+    public String getFormattedAddress() {
+        return new StringBuilder()
+                .append(neighborhood)
+                .append(" - ")
+                .append(city).toString();
+    }
 }

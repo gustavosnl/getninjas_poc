@@ -1,10 +1,6 @@
 package com.glima.getninjas.network.client;
 
-import com.glima.getninjas.model.Lead;
-import com.glima.getninjas.model.Offer;
-
-import java.util.List;
-
+import retrofit2.Response;
 import retrofit2.http.GET;
 import rx.Observable;
 
@@ -14,9 +10,9 @@ import rx.Observable;
 public interface GetNinjasClient {
 
     @GET("leads")
-    Observable<List<Lead>> listLeads();
+    Observable<Response<String>> listLeads();
 
     @GET("offers")
-    Observable<List<Offer>> listOffers();
+    Observable<Response<String>> listOffers();
 
 }

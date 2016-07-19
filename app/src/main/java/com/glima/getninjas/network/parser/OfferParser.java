@@ -13,7 +13,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -58,10 +57,11 @@ public class OfferParser implements Parser<List<Offer>> {
                 addressNode.at("/uf").asText());
     }
 
-    private Date createDate(String formattedDate) throws ParseException {
-        DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
-        Date date = format.parse(formattedDate);
-        return date;
+    private String createDate(String formattedDate) throws ParseException {
+        DateFormat inputDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
+        SimpleDateFormat outputDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        return outputDateFormat.format(inputDateFormat.parse(formattedDate));
+
     }
 
     private Boolean getIsRead(String state) {
