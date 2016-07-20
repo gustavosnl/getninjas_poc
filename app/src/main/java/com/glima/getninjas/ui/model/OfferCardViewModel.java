@@ -15,7 +15,6 @@ public class OfferCardViewModel extends BaseObservable {
         this.offer = offer;
     }
 
-
     public String getTitle() {
         return offer.getTitle();
     }

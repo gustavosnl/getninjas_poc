@@ -16,6 +16,9 @@ import com.glima.getninjas.ui.model.OfferCardViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
+import rx.Observable;
+import rx.subjects.PublishSubject;
+
 /**
  * Created by gustavo on 18/07/16.
  */
@@ -23,6 +26,7 @@ public class OfferAdapter extends RecyclerView.Adapter<OfferAdapter.OfferViewHol
 
     private List<Offer> offers = new ArrayList<>();
     private Context context;
+    private PublishSubject<OfferCardViewModel> publishSubject = PublishSubject.create();
 
     public OfferAdapter(Context context) {
         this.context = context;
@@ -48,6 +52,10 @@ public class OfferAdapter extends RecyclerView.Adapter<OfferAdapter.OfferViewHol
         notifyDataSetChanged();
     }
 
+    public Observable<OfferCardViewModel> getObservable() {
+        return publishSubject.asObservable();
+    }
+
     class OfferViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private OfferCardViewModel viewModel;
@@ -66,7 +74,7 @@ public class OfferAdapter extends RecyclerView.Adapter<OfferAdapter.OfferViewHol
 
         @Override
         public void onClick(View view) {
-
+            publishSubject.onNext(viewModel);
         }
     }
 }

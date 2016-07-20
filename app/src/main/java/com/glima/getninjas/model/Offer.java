@@ -13,7 +13,6 @@ public class Offer {
     private Address requestingAddress;
     private Integer requestingDistance;
 
-
     public Offer(String id, String title, Boolean isRead, String creationDate, User User, Address Address, Integer distance) {
         this.id = id;
         this.title = title;
