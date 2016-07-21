@@ -3,10 +3,9 @@ package com.glima.getninjas.network.datasource;
 import android.content.Context;
 
 import com.glima.getninjas.R;
-import com.glima.getninjas.model.Lead;
-import com.glima.getninjas.model.Offer;
+import com.glima.getninjas.model.Job;
 import com.glima.getninjas.network.client.GetNinjasClient;
-import com.glima.getninjas.network.parser.OfferParser;
+import com.glima.getninjas.network.parser.JobListParser;
 import com.glima.getninjas.network.service.BaseService;
 
 import java.io.ByteArrayInputStream;
@@ -24,21 +23,21 @@ import rx.schedulers.Schedulers;
 public class JobsDataSourceImpl extends BaseService implements JobsDataSource {
 
     private GetNinjasClient client;
-    private OfferParser parser;
+    private JobListParser parser;
 
     public JobsDataSourceImpl(Context context) {
         super(context, R.string.api_getninjas);
         client = retrofit.create(GetNinjasClient.class);
-        parser = new OfferParser();
+        parser = new JobListParser();
     }
 
     @Override
-    public Observable<List<Offer>> getOffers() {
-        return client.listOffers()
+    public Observable<List<Job>> listJobs(String jobKind) {
+        return client.list()
                 .subscribeOn(Schedulers.io())
-                .map(new Func1<Response<String>, List<Offer>>() {
+                .map(new Func1<Response<String>, List<Job>>() {
                     @Override
-                    public List<Offer> call(Response<String> response) {
+                    public List<Job> call(Response<String> response) {
                         try {
                             return parser.parse(new ByteArrayInputStream(response.body().getBytes()));
                         } catch (Exception e) {
@@ -50,25 +49,14 @@ public class JobsDataSourceImpl extends BaseService implements JobsDataSource {
     }
 
     @Override
-    public Observable<List<Lead>> getLeads() {
-        return client.listLeads()
+    public Observable<Job> getInfo(String offerId) {
+        return client.getInfo(offerId)
                 .subscribeOn(Schedulers.io())
-                .map(new Func1<Response<String>, List<Lead>>() {
+                .map(new Func1<Response<String>, Job>() {
                     @Override
-                    public List<Lead> call(Response<String> response) {
-                        try {
-                            //TODO: Rever modelo e parser para tratar ambos (Lead e Offer) como uma única entidade
-                            return new ArrayList<>();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            return new ArrayList<>();
-                        }
+                    public Job call(Response<String> response) {
+                        return null;
                     }
                 });
-    }
-
-    @Override
-    public Observable<Offer> getOfferInfo(String offerId) {
-        return null;
     }
 }

@@ -1,7 +1,6 @@
 package com.glima.getninjas.network.datasource;
 
-import com.glima.getninjas.model.Lead;
-import com.glima.getninjas.model.Offer;
+import com.glima.getninjas.model.Job;
 
 import java.util.List;
 
@@ -12,10 +11,8 @@ import rx.Observable;
  */
 public interface JobsDataSource {
 
-    Observable<List<Offer>> getOffers();
+    Observable<List<Job>> listJobs(String jobKind);
 
-    Observable<List<Lead>> getLeads();
+    Observable<Job> getInfo(String offerId);
 
-
-    Observable<Offer> getOfferInfo(String offerId);
 }

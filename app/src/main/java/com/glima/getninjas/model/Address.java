@@ -8,16 +8,18 @@ public class Address {
     private String city;
     private String neighborhood;
     private String state;
+    private String street;
     private Coordinates coordinates;
 
-    public Address(String city, String neighborhood, String state) {
+    public Address(String city, String neighborhood, String street, String state) {
         this.city = city;
         this.neighborhood = neighborhood;
         this.state = state;
+        this.street = street;
     }
 
-    public Address(String city, String neighborhood, String state, Coordinates coordinates) {
-        this(city, neighborhood, state);
+    public Address(String city, String neighborhood, String street, String state, Coordinates coordinates) {
+        this(city, neighborhood, street, state);
         this.coordinates = coordinates;
     }
 
@@ -42,5 +44,9 @@ public class Address {
                 .append(neighborhood)
                 .append(" - ")
                 .append(city).toString();
+    }
+
+    public String getStreet() {
+        return street;
     }
 }

@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 
 import com.glima.getninjas.R;
 import com.glima.getninjas.databinding.ViewCardOfferBinding;
-import com.glima.getninjas.model.Offer;
-import com.glima.getninjas.ui.model.OfferCardViewModel;
+import com.glima.getninjas.model.Job;
+import com.glima.getninjas.view.model.JobOfferCardViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,13 +22,13 @@ import rx.subjects.PublishSubject;
 /**
  * Created by gustavo on 18/07/16.
  */
-public class OfferAdapter extends RecyclerView.Adapter<OfferAdapter.OfferViewHolder> {
+public class JobAdapter extends RecyclerView.Adapter<JobAdapter.OfferViewHolder> {
 
-    private List<Offer> offers = new ArrayList<>();
+    private List<Job> jobs = new ArrayList<>();
     private Context context;
-    private PublishSubject<OfferCardViewModel> publishSubject = PublishSubject.create();
+    private PublishSubject<JobOfferCardViewModel> publishSubject = PublishSubject.create();
 
-    public OfferAdapter(Context context) {
+    public JobAdapter(Context context) {
         this.context = context;
     }
 
@@ -39,26 +39,26 @@ public class OfferAdapter extends RecyclerView.Adapter<OfferAdapter.OfferViewHol
 
     @Override
     public void onBindViewHolder(OfferViewHolder holder, int position) {
-        holder.attachOffer(offers.get(position));
+        holder.attachOffer(jobs.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return offers.size();
+        return jobs.size();
     }
 
-    public void reload(List<Offer> offers) {
-        this.offers.addAll(offers);
+    public void reload(List<Job> jobs) {
+        this.jobs.addAll(jobs);
         notifyDataSetChanged();
     }
 
-    public Observable<OfferCardViewModel> getObservable() {
+    public Observable<JobOfferCardViewModel> getObservable() {
         return publishSubject.asObservable();
     }
 
     class OfferViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private OfferCardViewModel viewModel;
+        private JobOfferCardViewModel viewModel;
         private ViewDataBinding viewDataBinding;
 
         public OfferViewHolder(ViewDataBinding viewDataBinding) {
@@ -67,9 +67,9 @@ public class OfferAdapter extends RecyclerView.Adapter<OfferAdapter.OfferViewHol
             itemView.setOnClickListener(this);
         }
 
-        public void attachOffer(Offer offer) {
-            viewModel = new OfferCardViewModel(offer);
-            ((ViewCardOfferBinding) viewDataBinding).setOffer(viewModel);
+        public void attachOffer(Job job) {
+            viewModel = new JobOfferCardViewModel(job);
+            ((ViewCardOfferBinding) viewDataBinding).setJob(viewModel);
         }
 
         @Override

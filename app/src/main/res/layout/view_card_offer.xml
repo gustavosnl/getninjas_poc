@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="android.view.View"/>
         <variable
-            name="offer"
-            type="com.glima.getninjas.ui.model.OfferCardViewModel" />
+            name="job"
+            type="com.glima.getninjas.view.model.JobOfferCardViewModel" />
     </data>
 
     <android.support.v7.widget.CardView
@@ -18,11 +18,22 @@
             android:layout_height="match_parent"
             android:padding="12dp">
 
+            <View
+                android:id="@+id/offer_status"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:background="@{job.read ? @drawable/read_indicator : @drawable/unread_indicator}"
+                android:visibility="@{job.statusVisible  ? View.VISIBLE : View.GONE}" />
+
             <TextView
                 android:id="@+id/title"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{offer.title}"
+                android:layout_alignParentTop="true"
+                android:gravity="center_vertical"
+                android:text="@{job.title}"
                 android:textSize="22sp"
                 tools:text="TITULO DA OFERTA" />
 
@@ -34,7 +45,7 @@
                 android:layout_marginBottom="16dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/dash_line"
-                android:layerType="software"/>
+                android:layerType="software" />
 
             <TextView
                 android:id="@+id/user_name"
@@ -44,7 +55,7 @@
                 android:drawableLeft="@drawable/ic_person"
                 android:drawablePadding="8dp"
                 android:gravity="center"
-                android:text="@{offer.userName}"
+                android:text="@{job.userName}"
                 tools:text="Fulano de Tal" />
 
             <TextView
@@ -56,7 +67,7 @@
                 android:drawableLeft="@drawable/ic_date"
                 android:drawablePadding="8dp"
                 android:gravity="center"
-                android:text="@{offer.date}"
+                android:text="@{job.date}"
                 tools:text="8 de outubro" />
 
             <TextView
@@ -69,7 +80,7 @@
                 android:drawableLeft="@drawable/ic_place"
                 android:drawablePadding="8dp"
                 android:gravity="center"
-                android:text="@{offer.requestingLocal}"
+                android:text="@{job.requestingLocal}"
                 tools:text="Nova Iguaçu - Rio de Janeiro" />
 
         </RelativeLayout>

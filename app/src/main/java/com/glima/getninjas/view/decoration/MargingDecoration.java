@@ -1,4 +1,4 @@
-package com.glima.getninjas.ui.decoration;
+package com.glima.getninjas.view.decoration;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
