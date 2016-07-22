@@ -1,7 +1,10 @@
 package com.glima.getninjas.model;
 
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.glima.getninjas.model.JobCondition.OFFER;
 
 /**
  * Created by gustavo on 16/07/16.
@@ -10,6 +13,8 @@ public class Job {
 
     private String id;
     private JobCondition condition;
+    private Integer leadPrice;
+    private String leadId;
     private String title;
     private Boolean isRead;
     private String creationDate;
@@ -28,6 +33,16 @@ public class Job {
         this.requestingAddress = Address;
         this.jobInfo.addAll(jobInfo);
         this.requestingDistance = distance;
+    }
+
+    public Job(Integer distance, Integer leadPrice, String title, List<Info> info, User user, Address address, String leadId) {
+        this.requestingDistance = distance;
+        this.leadPrice = leadPrice;
+        this.title = title;
+        this.jobInfo.addAll(info);
+        this.requestingUser = user;
+        this.requestingAddress = address;
+        this.leadId = leadId;
     }
 
     public String getId() {
@@ -64,5 +79,17 @@ public class Job {
 
     public List<Info> getJobInfo() {
         return jobInfo;
+    }
+
+    public Integer getLeadPrice() {
+        return leadPrice;
+    }
+
+    public String getLeadId() {
+        return leadId;
+    }
+
+    public Boolean isOffer() {
+        return !"".equals(leadId) || OFFER.equals(condition);
     }
 }

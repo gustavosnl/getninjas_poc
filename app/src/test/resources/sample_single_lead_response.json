@@ -9,9 +9,9 @@
         "value":"Coffee-break"
       },
       {
-        "label":"Qual serÃ¡ o tipo de comida?",
+        "label":"Qual será o tipo de comida?",
         "value":[
-          "Salgadinhos (coxinhas, kibes, risÃ³les etc)"
+          "Salgadinhos (coxinhas, kibes, risóles etc)"
         ]
       },
       {
@@ -50,7 +50,7 @@
       }
     },
     "address":{
-      "city":"SÃ£o Paulo",
+      "city":"São Paulo",
       "neighborhood":"Vila Leopoldina",
       "uf":"SP",
       "geolocation":{

@@ -18,8 +18,8 @@ public class Address {
         this.street = street;
     }
 
-    public Address(String city, String neighborhood, String street, String state, Coordinates coordinates) {
-        this(city, neighborhood, street, state);
+    public Address(String city, String neighborhood, String state, Coordinates coordinates) {
+        this(city, neighborhood, "", state);
         this.coordinates = coordinates;
     }
 

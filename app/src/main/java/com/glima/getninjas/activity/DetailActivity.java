@@ -34,7 +34,7 @@ public class DetailActivity extends BaseActivity implements Observer<Job> {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         jobsDataSource = new JobsDataSourceImpl(this);
-        jobsDataSource.getLeadInfo(getIntent().getStringExtra(JOB_ID))
+        jobsDataSource.getInfo(getIntent().getStringExtra(JOB_ID))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this);
     }

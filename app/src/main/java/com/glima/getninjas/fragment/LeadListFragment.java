@@ -38,7 +38,7 @@ public class LeadListFragment extends BaseListFragment {
 
     @Override
     protected void loadItems() {
-        jobsDataSource.getLeads()
+        jobsDataSource.listJobs("leads")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this);

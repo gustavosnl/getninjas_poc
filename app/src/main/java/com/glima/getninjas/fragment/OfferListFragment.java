@@ -39,7 +39,7 @@ public class OfferListFragment extends BaseListFragment implements Observer<List
     }
 
     protected void loadItems() {
-        jobsDataSource.getOffers()
+        jobsDataSource.listJobs("offers")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this);
