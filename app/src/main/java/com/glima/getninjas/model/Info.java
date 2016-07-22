@@ -8,8 +8,6 @@ import java.util.List;
  */
 public class Info {
 
-    private final Integer SINGLE_CONTENT = 1;
-
     private String label;
     private List<String> content = new ArrayList<>();
 
@@ -24,9 +22,5 @@ public class Info {
 
     public List<String> getContent() {
         return content;
-    }
-
-    public Boolean hasSingleContent() {
-        return SINGLE_CONTENT.equals(content.size());
     }
 }

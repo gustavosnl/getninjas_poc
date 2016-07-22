@@ -2,24 +2,36 @@ package com.glima.getninjas.view.model;
 
 import android.databinding.BaseObservable;
 
-import com.glima.getninjas.model.Coordinates;
+import com.glima.getninjas.model.Job;
 
 /**
  * Created by gustavo on 20/07/16.
  */
 public class DetailActivityViewModel extends BaseObservable {
 
-    Coordinates coordinates;
+    private Job job;
 
-    public DetailActivityViewModel(Coordinates coordinates) {
-        this.coordinates = coordinates;
+    public DetailActivityViewModel(Job job) {
+        this.job = job;
+    }
+
+    public String getTitle() {
+        return job.getTitle();
+    }
+
+    public String getUserName() {
+        return job.getRequestingUser().getName();
+    }
+
+    public String getRequestingLocal() {
+        return job.getRequestingAddress().getFormattedAddress();
     }
 
     public String getLatitude() {
-        return coordinates.getLatitude();
+        return job.getRequestingAddress().getCoordinates().getLatitude();
     }
 
     public String getLongitude() {
-        return coordinates.getLongitude();
+        return job.getRequestingAddress().getCoordinates().getLongitude();
     }
 }
