@@ -22,7 +22,7 @@ public class InfoView extends LinearLayout {
 
     public InfoView(Context context) {
         super(context);
-        viewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.view_info_item, this, false);
+        viewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.view_info_item, this, true);
         init();
     }
 

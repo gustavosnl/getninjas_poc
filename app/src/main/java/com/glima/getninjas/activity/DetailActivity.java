@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Toast;
 
 import com.glima.getninjas.R;
 import com.glima.getninjas.adapter.InfoAdapter;
@@ -42,10 +44,8 @@ public class DetailActivity extends BaseActivity implements Observer<Job> {
     @Override
     protected void init() {
         jobsDataSource = new JobsDataSourceImpl(this);
-        jobsDataSource.getInfo(getIntent().getStringExtra(JOB_ID))
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this);
 
+        load(getIntent().getStringExtra(JOB_ID));
         recyclerView = ((ActivityDetailBinding) viewDataBinding).adtionalInfoRecyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(this, VERTICAL, false));
         recyclerView.addItemDecoration(new MargingDecoration(8));
@@ -69,6 +69,7 @@ public class DetailActivity extends BaseActivity implements Observer<Job> {
 
     @Override
     public void onError(Throwable e) {
+        Toast.makeText(this, "Houve um erro ao obter as informações deste trabalho", Toast.LENGTH_SHORT).show();
 
     }
 
@@ -77,5 +78,16 @@ public class DetailActivity extends BaseActivity implements Observer<Job> {
         viewModel = new DetailActivityViewModel(job);
         ((ActivityDetailBinding) viewDataBinding).setJob(viewModel);
         recyclerView.setAdapter(new InfoAdapter(this, job.getJobInfo()));
+        viewDataBinding.notifyChange();
+    }
+
+    public void acceptOfferAction(View view) {
+        load(viewModel.getLeadId());
+    }
+
+    protected void load(String id) {
+        jobsDataSource.getInfo(id)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(this);
     }
 }

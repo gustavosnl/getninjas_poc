@@ -2,11 +2,11 @@
     <string name="app_name">Get Ninjas Poc</string>
     <string name="title_fragment_offers">DISPONÍVEIS</string>
     <string name="title_fragment_leads">ACEITOS</string>
-    <string name="title_activity_main2">Main2Activity</string>
-    <string name="action_settings">Settings</string>
-    <string name="section_format">Hello World from section: %1$d</string>
     <string name="error_load_offers">Houve um erro ao carregar as ofertas</string>
     <string name="action_accept">ACEITAR</string>
     <string name="action_refuse">RECUSAR</string>
     <string name="error_load_leads">Houve um erro ao carregar as ofertas aceitas</string>
+    <string name="label_user_info">Contato do Cliente</string>
+    <string name="label_accept_offer">Aceite o pedido para liberar as informações do contato.</string>
+    <string name="label_accept_lead">Entre em contato com o cliente o quanto antes.</string>
 </resources>

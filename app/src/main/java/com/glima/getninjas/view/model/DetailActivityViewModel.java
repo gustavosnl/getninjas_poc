@@ -23,6 +23,14 @@ public class DetailActivityViewModel extends BaseObservable {
         return job.getRequestingUser().getName();
     }
 
+    public String getUserEmail() {
+        return job.getRequestingUser().getEmail();
+    }
+
+    public String getUserPhone() {
+        return job.getRequestingUser().getPhones().get(0);
+    }
+
     public String getRequestingLocal() {
         return job.getRequestingAddress().getFormattedAddress();
     }
@@ -33,5 +41,13 @@ public class DetailActivityViewModel extends BaseObservable {
 
     public String getLongitude() {
         return job.getRequestingAddress().getCoordinates().getLongitude();
+    }
+
+    public boolean getIsOffer() {
+        return job.isOffer();
+    }
+
+    public String getLeadId() {
+        return job.getLeadId();
     }
 }

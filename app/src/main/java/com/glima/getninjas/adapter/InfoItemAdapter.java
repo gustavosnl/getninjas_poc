@@ -29,7 +29,7 @@ public class InfoItemAdapter extends RecyclerView.Adapter<InfoItemAdapter.ValueH
     @Override
     public ValueHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ValueHolder(DataBindingUtil
-                .inflate(LayoutInflater.from(context), R.layout.view_item_info_value, parent, false));
+                .inflate(LayoutInflater.from(context), R.layout.view_item_info_value, parent, true));
     }
 
     @Override

@@ -16,14 +16,11 @@
 
         <TextView
             android:id="@+id/label"
+            style="@style/highlightText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_info"
-            android:drawablePadding="8dp"
-            android:gravity="center"
             android:text="@{info.label}"
-            android:textColor="@color/primary_text"
-            android:textSize="16sp"
             tools:text="Olha só o label dessa info" />
 
         <android.support.v7.widget.RecyclerView
