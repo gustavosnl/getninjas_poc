@@ -5,8 +5,14 @@
     <string name="error_load_offers">Houve um erro ao carregar as ofertas</string>
     <string name="action_accept">ACEITAR</string>
     <string name="action_refuse">RECUSAR</string>
+    <string name="action_call">LIGAR</string>
+    <string name="action_text">MENSAGEM</string>
     <string name="error_load_leads">Houve um erro ao carregar as ofertas aceitas</string>
     <string name="label_user_info">Contato do Cliente</string>
     <string name="label_accept_offer">Aceite o pedido para liberar as informações do contato.</string>
     <string name="label_accept_lead">Entre em contato com o cliente o quanto antes.</string>
+    <string name="default_whatsapp_message">Olá, vi seu anuncio no getNinjas, vamos conversar sobre ele</string>
+    <string name="whatsapp_package_name">com.whatsapp</string>
+    <string name="detail_error_message">Houve um erro ao obter as informações deste trabalho</string>
+
 </resources>

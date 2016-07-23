@@ -1,6 +1,7 @@
 package com.glima.getninjas.model;
 
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class Job {
     private Integer leadPrice;
     private String leadId;
     private String title;
-    private Boolean isRead;
+    private Boolean isRead = Boolean.FALSE;
     private String creationDate;
     private User requestingUser;
     private Address requestingAddress;
@@ -92,4 +93,13 @@ public class Job {
     public Boolean isOffer() {
         return !"".equals(leadId) || OFFER.equals(condition);
     }
+
+    public String getRawPhone() {
+        return requestingUser.getRawMainPhone();
+    }
+
+    public BigDecimal getDistanceInKm() {
+        return new BigDecimal(requestingDistance / 1000.0).setScale(1, BigDecimal.ROUND_HALF_UP);
+    }
+
 }

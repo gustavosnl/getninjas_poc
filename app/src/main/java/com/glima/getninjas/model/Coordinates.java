@@ -5,19 +5,19 @@ package com.glima.getninjas.model;
  */
 public class Coordinates {
 
-    private String latitude;
-    private String longitude;
+    private Double latitude;
+    private Double longitude;
 
-    public Coordinates(String latitude, String longitude) {
+    public Coordinates(double latitude, double longitude) {
         this.latitude =latitude;
         this.longitude = longitude;
     }
 
-    public String getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public String getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 }

@@ -37,6 +37,7 @@ dependencies {
     compile 'io.reactivex:rxjava:1.1.6'
     compile 'com.trello:rxlifecycle:0.6.1'
     compile 'com.trello:rxlifecycle-components:0.6.1'
+    compile 'com.sdoward:rxgooglemaps:1.0@aar'
 
     // Retrofit
     compile 'com.squareup.retrofit2:retrofit:2.0.2'

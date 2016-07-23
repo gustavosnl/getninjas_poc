@@ -19,6 +19,9 @@
     <color name="bg_user_data_masked">@color/colorPrimaryLight</color>
     <color name="bg_user_data_unmasked">@color/accent</color>
 
+    <color name="circle_map_inside">#a003a9f4</color>
+    <color name="circle_map_border">@color/colorPrimaryDark</color>
+
 
 </resources>
 

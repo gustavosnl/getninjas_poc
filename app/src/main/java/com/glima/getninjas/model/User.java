@@ -34,16 +34,10 @@ public class User {
         return phones;
     }
 
-    protected void updateInfo(String email, List<String> phones) {
-        setEmail(email);
-        setPhones(phones);
+    public String getRawMainPhone() {
+        String rawPhone = phones.get(0).replace("(", "").replace(")", "").replace("-", "").replace(" ", "");
+        StringBuilder sb = new StringBuilder();
+        return sb.append("+55").append(rawPhone).toString();
     }
 
-    private void setEmail(String email) {
-        this.email = email;
-    }
-
-    private void setPhones(List<String> phones) {
-        this.phones.addAll(phones);
-    }
 }

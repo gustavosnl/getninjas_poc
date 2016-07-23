@@ -13,6 +13,7 @@ import java.util.List;
 
 import static java.lang.Boolean.TRUE;
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertNull;
 import static junit.framework.Assert.assertTrue;
@@ -70,7 +71,7 @@ public class JobListParserTest {
 
         //job
         assertNotNull(job);
-        assertNull(job.isRead());
+        assertFalse(job.isRead());
         assertEquals("lead-1", job.getId());
         assertEquals("Buffet Completo", job.getTitle());
         assertNull(job.getRequestingDistance());
@@ -92,7 +93,6 @@ public class JobListParserTest {
         assertEquals("SP", address.getState());
 
         assertNull(address.getCoordinates());
-
 
         assertEquals("04/03/2016", job.getCreationDate());
     }

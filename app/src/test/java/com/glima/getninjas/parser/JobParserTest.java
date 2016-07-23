@@ -31,7 +31,7 @@ public class JobParserTest {
 
         assertNotNull(job);
         assertEquals("Pedreiro", job.getTitle());
-        assertEquals(valueOf(30070), job.getRequestingDistance());
+        assertEquals(valueOf(325), job.getRequestingDistance());
         assertTrue(job.isOffer());
         assertEquals("lead-2", job.getLeadId());
         assertEquals(valueOf(6), job.getLeadPrice());
@@ -68,8 +68,8 @@ public class JobParserTest {
         Coordinates coordinates = address.getCoordinates();
 
         assertNotNull(coordinates);
-        assertEquals("-23.571629", coordinates.getLatitude());
-        assertEquals("-46.754039", coordinates.getLongitude());
+        assertEquals(-23.571629, coordinates.getLatitude());
+        assertEquals(-46.754039, coordinates.getLongitude());
 
     }
 
@@ -79,6 +79,7 @@ public class JobParserTest {
         assertNotNull(job);
         assertEquals("Buffet Completo", job.getTitle());
         assertEquals(valueOf(100070), job.getRequestingDistance());
+        assertEquals(100.1, job.getDistanceInKm().doubleValue());
         assertFalse(job.isOffer());
         assertEquals("", job.getLeadId());
         assertEquals(valueOf(1), job.getLeadPrice());
@@ -103,6 +104,7 @@ public class JobParserTest {
         assertEquals("eduardo@hotmail.com", user.getEmail());
         assertEquals(1, user.getPhones().size());
         assertEquals("(11) 3791-7315", user.getPhones().get(0));
+        assertEquals("+551137917315", user.getRawMainPhone());
 
         //Address
         Address address = job.getRequestingAddress();
@@ -115,7 +117,7 @@ public class JobParserTest {
         Coordinates coordinates = address.getCoordinates();
 
         assertNotNull(coordinates);
-        assertEquals("-23.5304898", coordinates.getLatitude());
-        assertEquals("-46.7261564", coordinates.getLongitude());
+        assertEquals(-23.5304898, coordinates.getLatitude());
+        assertEquals(-46.7261564, coordinates.getLongitude());
     }
 }

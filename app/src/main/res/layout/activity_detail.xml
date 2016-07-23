@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="job"
             type="com.glima.getninjas.view.model.DetailActivityViewModel" />
@@ -20,17 +22,28 @@
             android:id="@+id/include_toolbar"
             layout="@layout/toolbar_map" />
 
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="?actionBarSize">
 
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
             <ScrollView
+                android:id="@+id/content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="60dp"
                 android:fillViewport="true"
                 android:scrollbars="none"
-                android:layout_marginBottom="60dp">
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
@@ -38,7 +51,6 @@
                     android:layout_margin="8dp"
                     android:fillViewport="true"
                     android:paddingBottom="12dp"
-
                     app:cardUseCompatPadding="true">
 
                     <LinearLayout
@@ -50,10 +62,9 @@
 
                         <fragment
                             android:id="@+id/map"
-                            android:name="com.google.android.gms.maps.MapFragment"
+                            android:name="com.google.android.gms.maps.SupportMapFragment"
                             android:layout_width="match_parent"
-                            android:layout_height="140dp"
-                            app:layout_collapseMode="parallax" />
+                            android:layout_height="140dp" />
 
                         <TextView
                             android:id="@+id/job_name"
@@ -61,8 +72,9 @@
                             android:layout_height="wrap_content"
                             android:text="@{job.title}"
                             android:textColor="@color/primary_text"
-                            android:textSize="20sp"
+                            android:textSize="22sp"
                             android:textStyle="bold"
+                            android:layout_marginTop="8dp"
                             tools:text="Formatar Computador" />
 
                         <include layout="@layout/divider_dash" />
@@ -93,7 +105,7 @@
                             android:drawablePadding="8dp"
                             android:gravity="center"
                             android:paddingLeft="32dp"
-                            android:text="@{job.requestingLocal}"
+                            android:text="@{job.formattedDistance}"
                             android:textColor="@color/secondary_text"
                             android:textSize="12sp"
                             tools:text="a 10.000km de você" />
@@ -146,6 +158,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@{job.isOffer ? @string/label_accept_offer : @string/label_accept_lead}"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center"
                             tools:text="Olha só que disclaimer legal pra te incentivar a aceitar esta oferta" />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -157,7 +173,7 @@
                 android:layout_alignParentBottom="true"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:visibility="visible">
+                android:visibility="@{job.isOffer ? View.VISIBLE : View.GONE}">
 
                 <TextView
                     android:id="@+id/reject_offer"
@@ -168,10 +184,12 @@
                     android:drawableLeft="@drawable/ic_refuse"
                     android:drawablePadding="8dp"
                     android:gravity="center"
+                    android:onClick="deferOfferAction"
                     android:padding="16dp"
                     android:text="@string/action_refuse"
                     android:textSize="18sp"
                     android:textStyle="bold" />
+
 
                 <TextView
                     android:id="@+id/accept_offer"
@@ -182,11 +200,49 @@
                     android:drawableLeft="@drawable/ic_check"
                     android:drawablePadding="8dp"
                     android:gravity="center_vertical"
+                    android:onClick="acceptOfferAction"
                     android:padding="16dp"
                     android:text="@string/action_accept"
                     android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:onClick="acceptOfferAction"/>
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorPrimaryLight"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="@{job.isOffer  ? View.GONE : View.VISIBLE}">
+
+                <TextView
+                    android:id="@+id/call_user"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:drawableLeft="@drawable/ic_call"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:onClick="startDialer"
+                    android:padding="16dp"
+                    android:text="@string/action_call"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/message_user"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:drawableLeft="@drawable/ic_chat"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:onClick="startWhatsapp"
+                    android:padding="16dp"
+                    android:text="@string/action_text"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </RelativeLayout>
     </android.support.design.widget.CoordinatorLayout>

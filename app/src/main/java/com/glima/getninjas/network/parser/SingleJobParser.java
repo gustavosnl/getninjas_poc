@@ -44,8 +44,8 @@ public class SingleJobParser implements Parser<Job> {
     }
 
     private Coordinates getCoordinates(JsonNode locationNode) {
-        return new Coordinates(locationNode.at("/latitude").asText(),
-                locationNode.at("/longitude").asText());
+        return new Coordinates(locationNode.at("/latitude").asDouble(),
+                locationNode.at("/longitude").asDouble());
     }
 
     private List<Info> getInfo(JsonNode infoRootNode) {
