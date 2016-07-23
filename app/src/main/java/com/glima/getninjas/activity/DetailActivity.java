@@ -96,6 +96,7 @@ public class DetailActivity extends BaseActivity implements Observer<Job>, OnMap
     protected void setupToolbar() {
         Toolbar toolbar = ((ActivityDetailBinding) viewDataBinding).includeToolbar.toolbar;
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
